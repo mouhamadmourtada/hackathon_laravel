@@ -6,6 +6,7 @@ use App\Models\Todo;
 
 class TodoController extends Controller
 {
+    // constructor
     public function __construct()
     {
         $this->middleware('auth:api');
