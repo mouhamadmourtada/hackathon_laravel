@@ -33,23 +33,32 @@ class CategorieController extends Controller
         return $this->responseCreated('Categorie created successfully', new CategorieResource($categorie));
     }
 
-    public function show(Categorie $categorie): JsonResponse
+    public function show(int $categorie): JsonResponse
     {
+        try {   
+            $categorie = Categorie::find($categorie);
+        } catch (\Throwable $th) {
+            return $this->responseNotFound();
+        }
         return $this->responseSuccess(null, new CategorieResource($categorie));
     }
 
-    public function update(UpdateCategorieRequest $request, Categorie $categorie): JsonResponse
+    public function update(UpdateCategorieRequest $request, int $categorie): JsonResponse
     {
-        $categorie->update($request->validated());
-
-        return $this->responseSuccess('Categorie updated Successfully', new CategorieResource($categorie));
+        try {
+            $categorie = Categorie::find($categorie)->update($request->validated());
+        } catch (\Throwable $th) {
+            return $this->responseNotFound('Categorie not found');
+        }
+        
+        return $this->responseSuccess('Categorie updated Successfully');
     }
 
-    public function destroy(Categorie $categorie): JsonResponse
+    public function destroy(int $categorie): JsonResponse
     {
-        $categorie->delete();
+        $categorie = Categorie::find($categorie)->delete();
 
-        return $this->responseDeleted();
+        return $this->responseDeleted("Categorie supprimé avec succés");
     }
 
    
