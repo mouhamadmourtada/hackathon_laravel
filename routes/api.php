@@ -42,6 +42,7 @@ Route::prefix('todos')->controller(TodoController::class)->group(function () {
     Route::delete('/{id}', 'destroy');
 
 });
+
 Route::middleware('auth:api')->group(function () {
 
 
@@ -65,3 +66,173 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
+
+/*===========================
+=           typeStructures           =
+=============================*/
+
+Route::apiResource('/typeStructures', \App\Http\Controllers\API\TypeStructureController::class);
+
+/*=====  End of typeStructures   ======*/
+
+/*===========================
+=           partenaires           =
+=============================*/
+
+Route::apiResource('/partenaires', \App\Http\Controllers\API\PartenaireController::class);
+
+/*=====  End of partenaires   ======*/
+
+/*===========================
+=           structureSocials           =
+=============================*/
+
+Route::apiResource('/structureSocials', \App\Http\Controllers\API\StructureSocialController::class);
+
+/*=====  End of structureSocials   ======*/
+
+/*===========================
+=           categories           =
+=============================*/
+
+Route::apiResource('/categories', \App\Http\Controllers\API\CategorieController::class);
+
+/*=====  End of categories   ======*/
+
+/*===========================
+=           produits           =
+=============================*/
+
+Route::apiResource('/produits', \App\Http\Controllers\API\ProduitController::class);
+Route::group([
+   'prefix' => 'produits',
+], function() {
+    Route::get('{id}/restore', [\App\Http\Controllers\API\ProduitController::class, 'restore']);
+    Route::delete('{id}/permanent-delete', [\App\Http\Controllers\API\ProduitController::class, 'permanentDelete']);
+});
+/*=====  End of produits   ======*/
+
+/*===========================
+=           produitRappels           =
+=============================*/
+
+Route::apiResource('/produitRappels', \App\Http\Controllers\API\ProduitRappelController::class);
+Route::group([
+   'prefix' => 'produitRappels',
+], function() {
+    Route::get('{id}/restore', [\App\Http\Controllers\API\ProduitRappelController::class, 'restore']);
+    Route::delete('{id}/permanent-delete', [\App\Http\Controllers\API\ProduitRappelController::class, 'permanentDelete']);
+});
+/*=====  End of produitRappels   ======*/
+
+/*===========================
+=           produitVentes           =
+=============================*/
+
+Route::apiResource('/produitVentes', \App\Http\Controllers\API\ProduitVenteController::class);
+Route::group([
+   'prefix' => 'produitVentes',
+], function() {
+    Route::get('{id}/restore', [\App\Http\Controllers\API\ProduitVenteController::class, 'restore']);
+    Route::delete('{id}/permanent-delete', [\App\Http\Controllers\API\ProduitVenteController::class, 'permanentDelete']);
+});
+/*=====  End of produitVentes   ======*/
+
+/*===========================
+=           evenements           =
+=============================*/
+
+Route::apiResource('/evenements', \App\Http\Controllers\API\EvenementController::class);
+Route::group([
+   'prefix' => 'evenements',
+], function() {
+    Route::get('{id}/restore', [\App\Http\Controllers\API\EvenementController::class, 'restore']);
+    Route::delete('{id}/permanent-delete', [\App\Http\Controllers\API\EvenementController::class, 'permanentDelete']);
+});
+/*=====  End of evenements   ======*/
+
+/*===========================
+=           recettes           =
+=============================*/
+
+Route::apiResource('/recettes', \App\Http\Controllers\API\RecetteController::class);
+
+/*=====  End of recettes   ======*/
+
+/*===========================
+=           recette_produits           =
+=============================*/
+
+Route::apiResource('/recette_produits', \App\Http\Controllers\API\Recette_produitController::class);
+Route::group([
+   'prefix' => 'recette_produits',
+], function() {
+    Route::get('{id}/restore', [\App\Http\Controllers\API\Recette_produitController::class, 'restore']);
+    Route::delete('{id}/permanent-delete', [\App\Http\Controllers\API\Recette_produitController::class, 'permanentDelete']);
+});
+/*=====  End of recette_produits   ======*/
+
+/*===========================
+=           paniers           =
+=============================*/
+
+Route::apiResource('/paniers', \App\Http\Controllers\API\PanierController::class);
+Route::group([
+   'prefix' => 'paniers',
+], function() {
+    Route::get('{id}/restore', [\App\Http\Controllers\API\PanierController::class, 'restore']);
+    Route::delete('{id}/permanent-delete', [\App\Http\Controllers\API\PanierController::class, 'permanentDelete']);
+});
+/*=====  End of paniers   ======*/
+
+/*===========================
+=           commandes           =
+=============================*/
+
+Route::apiResource('/commandes', \App\Http\Controllers\API\CommandeController::class);
+Route::group([
+   'prefix' => 'commandes',
+], function() {
+    Route::get('{id}/restore', [\App\Http\Controllers\API\CommandeController::class, 'restore']);
+    Route::delete('{id}/permanent-delete', [\App\Http\Controllers\API\CommandeController::class, 'permanentDelete']);
+});
+/*=====  End of commandes   ======*/
+
+/*===========================
+=           posteSocials           =
+=============================*/
+
+Route::apiResource('/posteSocials', \App\Http\Controllers\API\PosteSocialController::class);
+Route::group([
+   'prefix' => 'posteSocials',
+], function() {
+    Route::get('{id}/restore', [\App\Http\Controllers\API\PosteSocialController::class, 'restore']);
+    Route::delete('{id}/permanent-delete', [\App\Http\Controllers\API\PosteSocialController::class, 'permanentDelete']);
+});
+/*=====  End of posteSocials   ======*/
+
+/*===========================
+=           prefs           =
+=============================*/
+
+Route::apiResource('/prefs', \App\Http\Controllers\API\PrefController::class);
+Route::group([
+   'prefix' => 'prefs',
+], function() {
+    Route::get('{id}/restore', [\App\Http\Controllers\API\PrefController::class, 'restore']);
+    Route::delete('{id}/permanent-delete', [\App\Http\Controllers\API\PrefController::class, 'permanentDelete']);
+});
+/*=====  End of prefs   ======*/
+
+/*===========================
+=           paiements           =
+=============================*/
+
+Route::apiResource('/paiements', \App\Http\Controllers\API\PaiementController::class);
+Route::group([
+   'prefix' => 'paiements',
+], function() {
+    Route::get('{id}/restore', [\App\Http\Controllers\API\PaiementController::class, 'restore']);
+    Route::delete('{id}/permanent-delete', [\App\Http\Controllers\API\PaiementController::class, 'permanentDelete']);
+});
+/*=====  End of paiements   ======*/
