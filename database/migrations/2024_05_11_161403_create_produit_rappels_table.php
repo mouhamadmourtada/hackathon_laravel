@@ -24,6 +24,7 @@ return new class extends Migration
 			$table->foreignId('produit_id')->constrained('produits')->nullable();
 			$table->foreignId('categorie_id')->constrained('categories')->nullable();
 			$table->string('nomTypeProduit')->nullable();
+            $table->string('image')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

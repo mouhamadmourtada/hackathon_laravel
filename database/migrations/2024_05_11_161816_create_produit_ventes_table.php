@@ -16,13 +16,14 @@ return new class extends Migration
         Schema::create('produitVentes', function (Blueprint $table) {
             $table->id();
             $table->string('libelle');
-			$table->foreignId('produit_id')->constrained('produits');
+			$table->foreignId('produit_id')->constrained('produits')->nullable();
 			$table->integer('stock');
 			$table->decimal('prixBase');
 			$table->decimal('prixVente');
-			$table->date('datePremption');
+			$table->date('datePremption')->nullable();
 			$table->foreignId('categorie_id')->constrained('categories')->nullable();
-			$table->foreignId('vendeur_id')->constrained('vendeurs');
+			$table->foreignId('vendeur_id')->constrained('users');
+            $table->string('image')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

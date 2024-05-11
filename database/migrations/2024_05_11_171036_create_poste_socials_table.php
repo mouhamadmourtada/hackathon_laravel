@@ -20,6 +20,7 @@ return new class extends Migration
 			$table->text('description')->nullable();
 			$table->integer('quantite');
 			$table->date('datePoste');
+            $table->string('image')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

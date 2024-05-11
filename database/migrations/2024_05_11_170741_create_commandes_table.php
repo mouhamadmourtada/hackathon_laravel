@@ -19,7 +19,7 @@ return new class extends Migration
 			$table->foreignId('produitVente_id')->constrained('produitVentes');
 			$table->integer('quantite');
 			$table->date('dateAchat');
-			$table->integer('feedback');
+			$table->integer('feedback')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

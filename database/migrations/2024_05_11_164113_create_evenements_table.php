@@ -20,6 +20,7 @@ return new class extends Migration
 			$table->string('logitude')->nullable();
 			$table->string('latitude')->nullable();
 			$table->date('datePublication');
+            $table->string('image')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
