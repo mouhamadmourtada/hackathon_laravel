@@ -19,7 +19,7 @@ class CreateProduitRappelRequest extends FormRequest
 			'user_id' => ['required'],
 			'produit_id' => ['required'],
 			'categorie_id' => ['required'],
-			'nomTypeProduit' => ['required', 'string'],
+			// 'nomTypeProduit' => ['required', 'string'],
         ];
     }
 
@@ -39,8 +39,8 @@ class CreateProduitRappelRequest extends FormRequest
 			'user_id.required' => 'L\'utilisateur est obligatoire',
 			'produit_id.required' => 'Le produit est obligatoire',
 			'categorie_id.required' => 'La catégorie est obligatoire',
-			'nomTypeProduit.required' => 'Le nom du type de produit est obligatoire',
-			'nomTypeProduit.string' => 'Le nom du type de produit doit être une chaîne de caractères',
+			// 'nomTypeProduit.required' => 'Le nom du type de produit est obligatoire',
+			// 'nomTypeProduit.string' => 'Le nom du type de produit doit être une chaîne de caractères',
 		];
 	}
 

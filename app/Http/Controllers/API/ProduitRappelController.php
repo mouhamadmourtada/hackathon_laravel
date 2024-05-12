@@ -10,6 +10,7 @@ use App\Models\ProduitRappel;
 use Essa\APIToolKit\Api\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Support\Facades\Log;
 
 class ProduitRappelController extends Controller
 {
@@ -28,7 +29,19 @@ class ProduitRappelController extends Controller
 
     public function store(CreateProduitRappelRequest $request): JsonResponse
     {
+        // dd($request->all());
         $produitRappel = ProduitRappel::create($request->validated());
+        
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            if ($file->isValid() && str_starts_with($file->getMimeType(), 'image/')) {
+                Log::info("dougg naa");
+                $imagePath = $file->store("produitRappel", "public");
+                $produitRappel->image = $imagePath;
+                $produitRappel->save();
+            }
+        }
 
         return $this->responseCreated('ProduitRappel created successfully', new ProduitRappelResource($produitRappel));
     }
