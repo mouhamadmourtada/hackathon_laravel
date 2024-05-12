@@ -12,7 +12,7 @@ class ProduitRappel extends Model
 {
     use HasFactory, Filterable, SoftDeletes;
 
-	protected $table = 'produitrappels';
+	protected $table = 'produitRappels';
 	
     protected string $default_filters = ProduitRappelFilters::class;
 

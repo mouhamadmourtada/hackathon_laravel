@@ -29,6 +29,7 @@ class ProduitVente extends Model
 		'datePremption',
 		'categorie_id',
 		'vendeur_id',
+		'lien_image'
     ];
 	public function produit(): \Illuminate\Database\Eloquent\Relations\BelongsTo
 	{

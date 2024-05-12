@@ -8,6 +8,7 @@
 
     <div class="flex mb-4 text-sm font-bold">
         <p>
+
             <a href="{{route("admin.users.index")}}"  class="text-maquette-gris">Liste des utilisateurs</a>
         </p>
         <span class="mx-2 text-maquette-gris">/</span>
@@ -133,6 +134,7 @@
 
             </form>
         </div>
+
     </div>
 
 

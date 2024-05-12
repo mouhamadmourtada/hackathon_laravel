@@ -17,6 +17,8 @@ class ProduitVenteResource extends JsonResource
 			'prixVente' => $this->prixVente,
 			'datePremption' => dateTimeFormat($this->datePremption),
 			'categorie_id' => $this->categorie_id,
+            'image' => $this->image,
+            'lien_image' => $this->lien_image,
 			'vendeur_id' => $this->vendeur_id,
             'created_at' => dateTimeFormat($this->created_at),
             'updated_at' => dateTimeFormat($this->updated_at),
