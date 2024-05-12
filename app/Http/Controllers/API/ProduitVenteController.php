@@ -10,6 +10,7 @@ use App\Models\ProduitVente;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Essa\APIToolKit\Api\ApiResponse;
+use Illuminate\Support\Facades\Log;
 
 class ProduitVenteController extends Controller
 {
@@ -29,6 +30,19 @@ class ProduitVenteController extends Controller
     public function store(CreateProduitVenteRequest $request): JsonResponse
     {
         $produitVente = ProduitVente::create($request->validated());
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            if ($file->isValid() && str_starts_with($file->getMimeType(), 'image/')) {
+                Log::info("dougg naa");
+                $imagePath = $file->store("imageProduitVente", "public");
+                $produitVente->image = $imagePath;
+                $produitVente->lien_image = $imagePath;
+                $produitVente->save();
+            }
+        }
+
+
 
         return $this->responseCreated('ProduitVente created successfully', new ProduitVenteResource($produitVente));
     }

@@ -12,20 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         //on doit modifier la table users pour ajouter les champs, nom, prenom, adresse, dateNaissance, numTelephone, sexe, userable_type, userable_id
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('nom');
-            $table->string('prenom');
-            $table->string('adresse')->nullable();
-            $table->date('dateNaissance')->nullable();
-            $table->string('numTelephone');
-            $table->enum('sexe', ['m', 'f']);
-            $table->string('userable_type')->nullable();
-            $table->integer('userable_id')->nullable();
-            $table->string('logitude')->nullable();
-            $table->string('latitude')->nullable();
-            // on doit enlever le champ name 
-            $table->dropColumn('name');
-        });
+        // Schema::table('users', function (Blueprint $table) {
+        //     $table->string('nom');
+        //     $table->string('prenom');
+        //     $table->string('adresse')->nullable();
+        //     $table->date('dateNaissance')->nullable();
+        //     $table->string('numTelephone');
+        //     $table->enum('sexe', ['m', 'f']);
+        //     $table->string('userable_type')->nullable();
+        //     $table->integer('userable_id')->nullable();
+        //     $table->string('logitude')->nullable();
+        //     $table->string('latitude')->nullable();
+        //     // on doit enlever le champ name 
+        //     $table->dropColumn('name');
+        // });
     }
 
     /**
