@@ -21,7 +21,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        // $roles = Role::all();
+        $roles = Role::all();
         return view('auth.register', compact('roles'));
     }
 
@@ -32,7 +32,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        dd($request->all());
+        // dd($request->all());
         $request->validate([
             'nom' => ['required', 'string', 'max:255'],
             'prenom' => ['required', 'string', 'max:255'],
@@ -46,24 +46,24 @@ class RegisteredUserController extends Controller
         ]);
 
         $user = User::create([
-            'nom' => $request->nom,
+            'nom' => '$request->nom',
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'prenom' => $request->prenom,
-            'adresse' => $request->adresse,
-            'dateNaissance' => $request->dateNaissance,
-            'numTelephone' => $request->numTelephone,
-            'sexe' => $request->sexe,
+            'prenom' => '$request->prenom',
+            'adresse' => '$request->adresse',
+            'dateNaissance' => now(),
+            'numTelephone' => '$request->numTelephone',
+            'sexe' => 'm',
             // 'role_id' => $request->role_id,
 
         ]);
         // il faut faire une relation entre user et role
-        $user->assignRole($request->role_id);
-        if($request->role_id == 1){
-            $user->userable_type = 'App\Models\Partenaire';
-            // $user->userable_id = 3;
-        }
-        $user->save();
+        // $user->assignRole($request->role_id);
+        // if($request->role_id == 1){
+        //     $user->userable_type = 'App\Models\Partenaire';
+        //     // $user->userable_id = 3;
+        // }
+        // $user->save();
             
         event(new Registered($user));
 

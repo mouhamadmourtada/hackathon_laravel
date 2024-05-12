@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 // use App\Models\Role;
 use Spatie\Permission\Models\Role;
 
@@ -34,18 +35,24 @@ class userController extends Controller
             'nom' => 'required',
             'email' => 'required',
             'prenom' => 'required',
-            'password' => 'required',
-            'adresse' => 'required',
-            'dateNaissance' => 'required',
-            'role_id' => 'required',
+            // 'dateNaissance' => 'required',
             'numTelephone' => 'required',
-            'userable_type' => 'required',
-            'userable_id' => 'required',
             'sexe' => 'required',
         ]);
 
 
-        User::create($request->all());
+        // User::create($request->all());
+        $user = new User();
+        $user->nom = $request->nom;
+        $user->prenom = $request->prenom;
+        $user->email = $request->email;
+        $user->password = Hash::make('passer1234');
+        $user->numTelephone = $request->numTelephone;
+        $user->adresse = $request->adresse;
+        $user->dateNaissance = $request->dateNaissance;
+        $user->sexe = $request->sexe;
+        
+        $user->save();
 
         return redirect()->route('admin.users.index')
             ->with('success', 'User created successfully.');
