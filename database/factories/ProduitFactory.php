@@ -12,7 +12,7 @@ class ProduitFactory extends Factory
             'nom' => $this->faker->firstName(),
 			'libelle' => $this->faker->firstName(),
 			'description' => $this->faker->text(),
-			'prixBase' => $this->faker->randomFloat(),
+			'prixBase' => $this->faker->randomNumber(),
 			'categorie_id' => createOrRandomFactory(\App\Models\Categorie::class),
 			'typeQuantite' => $this->faker->firstName(),
         ];

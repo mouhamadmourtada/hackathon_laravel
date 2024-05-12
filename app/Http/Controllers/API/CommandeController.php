@@ -9,9 +9,11 @@ use App\Http\Resources\Commande\CommandeResource;
 use App\Models\Commande;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Essa\APIToolKit\Api\ApiResponse;
 
 class CommandeController extends Controller
 {
+    use ApiResponse;
     public function __construct()
     {
 

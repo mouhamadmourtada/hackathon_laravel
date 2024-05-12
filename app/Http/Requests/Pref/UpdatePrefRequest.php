@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Pref;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class UpdatePrefRequest extends FormRequest
 {
@@ -13,5 +15,17 @@ class UpdatePrefRequest extends FormRequest
 			'produit_id' => ['sometimes'],
 			'prix' => ['sometimes', 'numeric'],
         ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'prix.numeric' => 'Le prix doit être un nombre',
+        ];
+    }
+
+    public function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json(['errors' => $validator->errors()]));
     }
 }

@@ -9,9 +9,11 @@ use App\Http\Resources\StructureSocial\StructureSocialResource;
 use App\Models\StructureSocial;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Essa\APIToolKit\Api\ApiResponse;
 
 class StructureSocialController extends Controller
 {
+    use ApiResponse;
     public function __construct()
     {
 

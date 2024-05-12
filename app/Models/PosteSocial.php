@@ -12,6 +12,8 @@ class PosteSocial extends Model
 {
     use HasFactory, Filterable, SoftDeletes;
 
+    protected $table = 'postesocials';                          
+    
     protected string $default_filters = PosteSocialFilters::class;
 
     /**

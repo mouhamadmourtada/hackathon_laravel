@@ -12,6 +12,7 @@ class StructureSocial extends Model
 {
     use HasFactory, Filterable;
 
+    protected $table = 'structure_sociales';
     protected string $default_filters = StructureSocialFilters::class;
 
     /**

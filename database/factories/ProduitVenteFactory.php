@@ -16,7 +16,7 @@ class ProduitVenteFactory extends Factory
 			'prixVente' => $this->faker->randomFloat(),
 			'datePremption' => $this->faker->dateTime(),
 			'categorie_id' => createOrRandomFactory(\App\Models\Categorie::class),
-			'vendeur_id' => createOrRandomFactory(\App\Models\Vendeur::class),
+			'vendeur_id' => createOrRandomFactory(\App\Models\User::class),
         ];
     }
 }
