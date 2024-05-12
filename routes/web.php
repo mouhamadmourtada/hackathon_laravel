@@ -20,7 +20,9 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $users = \App\Models\User::all();
+    $produits = \App\Models\Produit::all();
+    return view('dashboard')->with(['users' => $users, 'produits' => $produits]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

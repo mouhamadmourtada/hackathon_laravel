@@ -7,6 +7,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>{{ config('app.name', 'APIX') }}</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.bunny.net">
@@ -23,7 +24,7 @@
   @livewireStyles
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased overflow-y-hidden">
   <div class="relative h-screen overflow-hidden bg-[#E6E6E6] rounded-2xl">
     <div x-data="{ isOpen: true }" class="flex items-start justify-between">
       {{-- sidebar --}}
@@ -41,8 +42,8 @@
 
 
         <div class="pb-10 h-screen">
-            <div class="h-full pt-1 pb-24 pl-6 pr-6 overflow-auto md:pt-6 md:pr-6 md:pl-6 mb-10">
-                @include('layouts.v1.partials._alert')
+            <div class="h-full pb-24 pl-6 pr-6 overflow-auto md:pr-6 md:pl-6 mb-10">
+                {{-- @include('layouts.v1.partials._alert') --}}
               {{ $slot }}
 
             </div>
