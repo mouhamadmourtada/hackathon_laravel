@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Spatie\Permission\Models\Role;
 
 class RegisteredUserController extends Controller
 {
@@ -20,7 +21,8 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        // $roles = Role::all();
+        return view('auth.register', compact('roles'));
     }
 
     /**
@@ -30,18 +32,39 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        dd($request->all());
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'nom' => ['required', 'string', 'max:255'],
+            'prenom' => ['required', 'string', 'max:255'],
+            'adresse' => ['required', 'string', 'max:255'],
+            'dateNaissance' => ['required', 'date', 'max:255'],
+            'numTelephone' => ['required', 'string', 'max:255'],
+            'sexe' => ['required', 'string', 'max:255'],
+            'role_id' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
-            'name' => $request->name,
+            'nom' => $request->nom,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-        ]);
+            'prenom' => $request->prenom,
+            'adresse' => $request->adresse,
+            'dateNaissance' => $request->dateNaissance,
+            'numTelephone' => $request->numTelephone,
+            'sexe' => $request->sexe,
+            // 'role_id' => $request->role_id,
 
+        ]);
+        // il faut faire une relation entre user et role
+        $user->assignRole($request->role_id);
+        if($request->role_id == 1){
+            $user->userable_type = 'App\Models\Partenaire';
+            // $user->userable_id = 3;
+        }
+        $user->save();
+            
         event(new Registered($user));
 
         Auth::login($user);

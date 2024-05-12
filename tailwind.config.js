@@ -66,6 +66,14 @@ export default {
             zIndex: {
                 60: '60',
             },
+            colors : {
+                "primaire" : '#E9F1FA',
+                "secondaire" : "#064B4E",
+                "first-orange" : "#064B4E",
+                "tertiaire" : "#F2F2F2",
+                "maquette-gris" : "#929eae",
+
+            }
         },
     },
     // plugins: [forms],
