@@ -9,9 +9,11 @@ use App\Http\Resources\Paiement\PaiementResource;
 use App\Models\Paiement;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Essa\APIToolKit\Api\ApiResponse;
 
 class PaiementController extends Controller
 {
+    use ApiResponse;
     public function __construct()
     {
 
@@ -45,8 +47,9 @@ class PaiementController extends Controller
 
     public function destroy(Paiement $paiement): JsonResponse
     {
-        $paiement->delete();
 
+        $paiement->delete();
+        
         return $this->responseDeleted();
     }
 
@@ -63,6 +66,10 @@ class PaiementController extends Controller
     {
         $paiement = Paiement::withTrashed()->findOrFail($id);
 
+        if (!$paiement) {
+            return $this->responseError();
+        }
+        
         $paiement->forceDelete();
 
         return $this->responseDeleted();

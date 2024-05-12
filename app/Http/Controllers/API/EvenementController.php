@@ -9,9 +9,11 @@ use App\Http\Resources\Evenement\EvenementResource;
 use App\Models\Evenement;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Essa\APIToolKit\Api\ApiResponse;
 
 class EvenementController extends Controller
 {
+    use ApiResponse;
     public function __construct()
     {
 

@@ -9,9 +9,11 @@ use App\Http\Resources\PosteSocial\PosteSocialResource;
 use App\Models\PosteSocial;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Essa\APIToolKit\Api\ApiResponse;
 
 class PosteSocialController extends Controller
 {
+    use ApiResponse;
     public function __construct()
     {
 

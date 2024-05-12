@@ -9,9 +9,11 @@ use App\Http\Resources\ProduitVente\ProduitVenteResource;
 use App\Models\ProduitVente;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Essa\APIToolKit\Api\ApiResponse;
 
 class ProduitVenteController extends Controller
 {
+    use ApiResponse;
     public function __construct()
     {
 

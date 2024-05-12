@@ -9,9 +9,11 @@ use App\Http\Resources\Pref\PrefResource;
 use App\Models\Pref;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Essa\APIToolKit\Api\ApiResponse;
 
 class PrefController extends Controller
 {
+    use ApiResponse;
     public function __construct()
     {
 

@@ -9,9 +9,11 @@ use App\Http\Resources\Recette_produit\Recette_produitResource;
 use App\Models\Recette_produit;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Essa\APIToolKit\Api\ApiResponse;
 
 class Recette_produitController extends Controller
 {
+    use ApiResponse;
     public function __construct()
     {
 

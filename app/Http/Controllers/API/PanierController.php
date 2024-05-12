@@ -9,9 +9,11 @@ use App\Http\Resources\Panier\PanierResource;
 use App\Models\Panier;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Essa\APIToolKit\Api\ApiResponse;
 
 class PanierController extends Controller
 {
+    use ApiResponse;
     public function __construct()
     {
 
