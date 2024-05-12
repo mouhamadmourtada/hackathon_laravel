@@ -34,14 +34,14 @@ class DatabaseSeeder extends Seeder
         // Panier::factory(10)->create();
         // Partenaire::factory(10)->create();
         // Pref::factory(10)->create();
-        // Paiement::factory(10)->create();
+        Paiement::factory(10)->create();
         // Produit::factory(10)->create();
         // ProduitRappel::factory(10)->create();
         // ProduitVente::factory(10)->create();
         // Recette::factory(10)->create();
-        StructureSocial::factory(10)->create();
-        TypeStructure::factory(10)->create();
-        PosteSocial::factory(10)->create();
+        // StructureSocial::factory(10)->create();
+        // TypeStructure::factory(10)->create();
+        // PosteSocial::factory(10)->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
