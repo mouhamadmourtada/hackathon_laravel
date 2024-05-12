@@ -46,6 +46,14 @@ class User extends Authenticatable implements JWTSubject
     ];
 
     /**
+     * Get the products for sale of the user.
+     */
+    public function produitVentes()
+    {
+        return $this->hasMany(ProduitVente::class, 'vendeur_id');
+    }
+
+    /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *
      * @return mixed

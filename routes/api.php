@@ -104,6 +104,7 @@ Route::apiResource('/categories', \App\Http\Controllers\API\CategorieController:
 =============================*/
 
 Route::apiResource('/produits', \App\Http\Controllers\API\ProduitController::class);
+// il faut ajouter une route qui permet de recupérer les produits par vendeur_id
 Route::group([
    'prefix' => 'produits',
 ], function() {
@@ -130,6 +131,10 @@ Route::group([
 =============================*/
 
 Route::apiResource('/produitVentes', \App\Http\Controllers\API\ProduitVenteController::class);
+// Route::get('/produitVente/vendeur/{id}',[\App\Http\Controllers\API\ProduitVenteController::class, 'vendeurProduit'])
+// il fatu une route pour liste les produits par venduers
+Route::get('/produitVentes/vendeur/{id}',[\App\Http\Controllers\API\ProduitVenteController::class, 'vendeurProduit'])->name('produitVentes.vendeur');
+
 Route::group([
    'prefix' => 'produitVentes',
 ], function() {

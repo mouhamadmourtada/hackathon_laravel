@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
         // Panier::factory(10)->create();
         // Partenaire::factory(10)->create();
         // Pref::factory(10)->create();
-        Paiement::factory(10)->create();
+        // Paiement::factory(10)->create();
         // Produit::factory(10)->create();
         // ProduitRappel::factory(10)->create();
         // ProduitVente::factory(10)->create();
@@ -47,6 +47,6 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         // php artisan db:seed
-        \App\Models\Produit::factory(20)->create();
+        \App\Models\Categorie::factory(20)->create();
     }
 }

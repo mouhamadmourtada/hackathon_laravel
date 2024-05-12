@@ -10,6 +10,7 @@ use App\Models\ProduitVente;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Essa\APIToolKit\Api\ApiResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class ProduitVenteController extends Controller
@@ -83,4 +84,15 @@ class ProduitVenteController extends Controller
 
         return $this->responseDeleted();
     }
+ 
+    public function vendeurProduit($id){
+        // il faut renvoyer les produit dont le vendeur est
+        Auth::user->produitVentes()
+    }
+
+    
 }
+
+
+
+          
