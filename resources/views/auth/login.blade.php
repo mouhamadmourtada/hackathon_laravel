@@ -66,6 +66,6 @@
                 </div>
             </div>
         </div>
-       <span class="md:pt-24 text-white text-sm font-medium">Copyright@KGM_CONSULTING</span>
+       <span class="md:pt-24 text-white text-sm font-medium">A4l0u_C0d3</span>
     </div>
 </x-guest-layout>
